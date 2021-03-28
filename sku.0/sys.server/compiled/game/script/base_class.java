@@ -3923,7 +3923,7 @@ public class base_class
     */
 	public static void systemMsg(obj_id to, String msg)
     {
-        sendSystemMessage (to, localizedMessageText, null);
+        sendSystemMessage (to, msg, null);
     }
     /**
     * Send a system message to an individual

@@ -192,6 +192,14 @@ public class ai_lib extends script.base_script
             doAnimationAction(npc, anim);
         }
     }
+    public static int spawnAdd(obj_id self, String spawn, location loc) throws InterruptedException
+    {  
+        String template = spawn;
+        location where = loc;
+        obj_id object = create.object(template, loc);
+        attachScript(object, "heroic.mob.normal_mob");
+        return SCRIPT_CONTINUE;
+    }
     public static void setPatrolPath(obj_id npc, String[] waypoints) throws InterruptedException
     {
         setPatrolPath(npc, waypoints, 0);
@@ -466,7 +474,7 @@ public class ai_lib extends script.base_script
         for (int i = 0; i < waypoints.length; i++)
         {
             coords = parseWaypoints(waypoints[i]);
-            if (coords.length == 2)
+            if (coords != null && coords.length == 2)
             {
                 patrolLoc.x = baseLoc.x + coords[0];
                 patrolLoc.z = baseLoc.z + coords[1];
@@ -1019,7 +1027,7 @@ public class ai_lib extends script.base_script
             {
                 String mySocialGroup = getSocialGroup(npc);
                 String yourSocialGroup = getSocialGroup(target);
-                if ((mySocialGroup != null) && mySocialGroup.equals(yourSocialGroup))
+                if ((mySocialGroup != null) && (yourSocialGroup != null) && mySocialGroup.equals(yourSocialGroup))
                 {
                     result = true;
                 }
@@ -1028,7 +1036,7 @@ public class ai_lib extends script.base_script
             {
                 String mySocialGroup = factions.getFaction(npc);
                 String yourSocialGroup = factions.getFaction(target);
-                if ((mySocialGroup != null) && mySocialGroup.equals(yourSocialGroup))
+                if ((mySocialGroup != null) && (yourSocialGroup != null) && mySocialGroup.equals(yourSocialGroup))
                 {
                     result = true;
                 }
@@ -1044,11 +1052,10 @@ public class ai_lib extends script.base_script
         return creatureName != null && (dataTableGetInt(CREATURE_TABLE, creatureName, "herd") == 1);
     }
     public static boolean isStalkingCreature(obj_id ai) throws InterruptedException {
-        if (!(isPlayer(ai) || aiGetNiche(ai) == NICHE_NPC || isAndroid(ai))) {
-            if (!hasScript(ai, "ai.pet_advance")) {
-                return aiIsStalker(ai);
-            }
-        }
+        if (!(isPlayer(ai) || aiGetNiche(ai) == NICHE_NPC || isAndroid(ai)))
+            if (!hasScript(ai, "ai.pet_advance"))
+                if (aiIsStalker(ai))
+                    return true;
         return false;
     }
     public static boolean isAggroToward(obj_id npc, obj_id threat) throws InterruptedException
@@ -1074,7 +1081,10 @@ public class ai_lib extends script.base_script
         {
             if (ai_lib.isAggro(npc))
             {
-                return reaction <= factions.REACTION_NEUTRAL;
+                if (reaction <= factions.REACTION_NEUTRAL)
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -1082,7 +1092,10 @@ public class ai_lib extends script.base_script
         {
             return true;
         }
-        return ai_lib.aiGetNiche(npc) == NICHE_CARNIVORE && ai_lib.aiGetNiche(threat) == NICHE_HERBIVORE;
+        if (ai_lib.aiGetNiche(npc) == NICHE_CARNIVORE && ai_lib.aiGetNiche(threat) == NICHE_HERBIVORE) {
+            return true;
+        }
+        return false;
     }
     public static boolean isAggro(obj_id ai) throws InterruptedException
     {
@@ -1111,15 +1124,13 @@ public class ai_lib extends script.base_script
         String creatureName = getCreatureName(npc);
         return creatureName != null && (dataTableGetInt(CREATURE_TABLE, creatureName, "healer") != 0);
     }
-    public static void incapacitateMob(obj_id target) throws InterruptedException
+    public static boolean incapacitateMob(obj_id target) throws InterruptedException
     {
         if (target == null || !isMob(target))
         {
-            return;
+            return false;
         }
-        setHealth(target, -50);
-        setAction(target, -50);
-        setMind(target, -50);
+        return setHealth(target, -50) && setAction(target, -50) && setMind(target, -50);
     }
     public static boolean isHumanSkeleton(obj_id npc) throws InterruptedException {
         if (isPlayer(npc)) {
@@ -1543,13 +1554,7 @@ public class ai_lib extends script.base_script
         String creatureName = getCreatureName(creature);
         if (creatureName.indexOf("elite_") < 1 && creatureName.indexOf("boss_") < 1)
         {
-            dictionary d = utils.dataTableGetRow(CREATURE_TABLE, creatureName);
-            if (d != null) {
-                create.initializeCreature(creature, creatureName, d, getLevel(creature) + 1);
-            } else
-            {
-                debugConsoleMsg(creature, "ai_lib.creatureLevelUp() Could not get data table dictionary for row requested for creature "+creatureName);
-            }
+            create.initializeCreature(creature, creatureName, utils.dataTableGetRow(CREATURE_TABLE, creatureName), getLevel(creature) + 1);
         }
     }
     public static boolean mindTrick(obj_id player, obj_id target) throws InterruptedException

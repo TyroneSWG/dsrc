@@ -3918,7 +3918,13 @@ public class base_class
         sendSystemMessage (to, null, packOutOfBandProsePackage (null, pp));
         //sendSystemMessageProse (getChatName (to), pp);
     }
-
+	/**
+    * Send a system message to an individual (ez mode)
+    */
+	public static void systemMsg(obj_id to, String msg)
+    {
+        sendSystemMessage (to, localizedMessageText, null);
+    }
     /**
     * Send a system message to an individual
     */
@@ -3950,7 +3956,7 @@ public class base_class
     public static void sendFactionalSystemMessagePlanet(string_id messageId, location loc, float radius, boolean notifyImperial, boolean notifyRebel)
     {
         prose_package pp = new prose_package();
-        pp.stringId = messageId;
+        pp.stringId = w;
         sendFactionalSystemMessagePlanet(pp, loc, radius, notifyImperial, notifyRebel);
     }
 

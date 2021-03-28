@@ -3956,7 +3956,7 @@ public class base_class
     public static void sendFactionalSystemMessagePlanet(string_id messageId, location loc, float radius, boolean notifyImperial, boolean notifyRebel)
     {
         prose_package pp = new prose_package();
-        pp.stringId = w;
+        pp.stringId = messageId;
         sendFactionalSystemMessagePlanet(pp, loc, radius, notifyImperial, notifyRebel);
     }
 

@@ -1968,14 +1968,13 @@ object/static/structure/corellia/corl_imprv_wall_4x16_s02.iff	0	13328	75	3582	-2
 object/static/structure/corellia/corl_imprv_column_s02.iff	0	13320	75	3582	-0.707107	0	0.707107	0		$|
 object/static/structure/corellia/corl_imprv_column_s02.iff	0	13320	75	3598	0.707119	0	-0.707094	0		$|
 object/static/structure/corellia/corl_imprv_column_s02.iff	0	13336	75	3582	0.707119	0	-0.707094	0		$|
-object/mobile/stp/taanab_reek.iff	0	13325	75	3557.8	-0.681121	0	0.732171	0	theme_park.stp.invuln	stp.npc.name|4|Spot|$|
-object/mobile/stp/taanab_reek.iff	0	13331.2	75	3554.88	-0.292821	0	0.956167	0	theme_park.stp.invuln	stp.npc.name|4|Dopey|$|
-object/mobile/stp/taanab_reek.iff	0	13324.4	75	3549.48	0.740197	0	-0.67239	0	theme_park.stp.invuln	stp.npc.name|4|Spike|$|
+object/mobile/snorbal_hue.iff	0	13325	75	3557.8	-0.681121	0	0.732171	0	theme_park.stp.invuln	stp.npc.name|4|Spot|$|
+object/mobile/snorbal_hue.iff	0	13331.2	75	3554.88	-0.292821	0	0.956167	0	theme_park.stp.invuln	stp.npc.name|4|Dopey|$|
+object/mobile/snorbal_hue.iff	0	13324.4	75	3549.48	0.740197	0	-0.67239	0	theme_park.stp.invuln	stp.npc.name|4|Spike|$|
 object/mobile/snorbal_matriarch.iff	0	13325.5	75	3588.46	0.708141	0	-0.706072	0	theme_park.stp.invuln	stp.npc.name|4|Lumpy|$|
 object/mobile/snorbal_hue.iff	0	13327	75	3593.74	-0.649908	0	0.760013	0	theme_park.stp.invuln	stp.npc.name|4|Shiny|$|
 object/mobile/dressed_governor.iff	0	13179.2	75	3588.77	0.479188	0	0.877712	0	theme_park.stp.invuln:conversation.dim_u_s01	stp.npc.name|4|Jerooba Vir (a Dim-U Scholar)|$|
 object/static/structure/corellia/corl_fountain_rectangle_s01.iff	0	13274	75	3514	1	0	0	0		$|
-object/mobile/testblue_male.iff	0	3993.96	29.0379	2871.5	0.463615	0	0.886037	0	systems.combat.credit_for_kills:theme_park.stp.hologram	$|
 object/soundobject/soundobject_shield_generator.iff	0	13126.6	76.6091	3652.51	1	0	0	0		$|
 object/soundobject/soundobject_marketplace_large.iff	0	13320.8	78.4298	3527.08	1	0	0	0		$|
 object/mobile/dressed_commoner_tatooine_aqualish_male_08.iff	0	13266.1	75	3526.59	0.747339	0	0.664443	0	systems.combat.credit_for_kills:theme_park.stp.shady	ai.defaultCalmBehavior|0|1|$|

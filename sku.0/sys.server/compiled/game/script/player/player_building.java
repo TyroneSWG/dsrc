@@ -5315,9 +5315,9 @@ public class player_building extends script.base_script
     {
         location loc = getLocation(player);
         obj_id structure = getTopMostContainer(loc.cell);
-        if (isGod(player))
+        if (!isGod(player))
         {
-            return true;
+            return false;
         }
         if (!isIdValid(structure) || !isIdValid(target))
         {

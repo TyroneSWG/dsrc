@@ -137,24 +137,6 @@ object/static/vehicle/kash_rodian_shuttle.iff	8	42.6515	0.799999	-41.6956	-0.300
 object/soundobject/soundobject_starport_announcer.iff	8	52.4174	9.35966	-38.1561	1	0	0	0		$|
 object/mobile/gungan_s02_male.iff	8	104.706	0.8	-49.713	-0.328745	0	0.944419	0	theme_park.stp.hologram:theme_park.stp.invuln	$|
 object/cell/cell.iff	9	0	0	0	1	0	0	0		$|
-object/static/structure/general/slab_concrete_imperial.iff	9	102.58	-7.1886	-22.1584	0.890343	0	-0.455291	0		$|
-object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	9	91.4513	0.799995	-23.3519	0.890343	0	-0.455291	0		$|
-object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	9	100.734	0.799995	-10.4785	0.890343	0	-0.455291	0		$|
-object/static/structure/corellia/corl_imprv_column_s04.iff	9	92.2027	9.22317	-22.0313	0	-0.459737	0	0.888055		$|
-object/static/structure/corellia/corl_imprv_column_s04.iff	9	89.8701	9.22319	-25.1974	0	-0.459737	0	0.888055		$|
-object/tangible/door/echo_tower_door.iff	9	90.2393	0.799995	-23.0431	0.453596	0	0.891207	0		$|
-object/tangible/door/echo_tower_door.iff	9	92.2827	0.799995	-24.4917	0.891208	0	-0.453596	0		$|
-object/tangible/saga_system/rewards/pgc_glass_pane_01.iff	9	91.4933	4.47594	-23.635	0.891568	0	-0.452886	0		$|
-object/tangible/saga_system/rewards/pgc_glass_pane_01.iff	9	96.8614	4.47596	-15.9933	0.884675	0	-0.466208	0		$|
-object/static/structure/corellia/corl_imprv_column_s04.iff	9	95.3015	9.22321	-17.4379	0	-0.459737	0	0.888055		$|
-object/static/structure/corellia/corl_imprv_column_s04.iff	9	97.5964	9.22318	-14.2569	0	-0.455291	0	0.890343		$|
-object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	9	91.4174	11.3035	-23.3852	0	0.890343	0	0.455291		$|
-object/static/structure/corellia/corl_imprv_wall_4x16_s04.iff	9	100.717	11.3034	-10.5245	0	0.890343	0	0.455291		$|
-object/tangible/saga_system/rewards/pgc_glass_pane_01.iff	9	99.6796	3.7562	-12.0776	0.891568	0	-0.452886	0		$|
-object/tangible/saga_system/rewards/pgc_glass_pane_01.iff	9	94.2574	4.74161	-19.7024	0.884675	0	-0.466208	0		$|
-object/tangible/saga_system/rewards/pgc_glass_pane_01.iff	9	88.4919	4.67092	-27.6551	0.884675	0	-0.466208	0		$|
-object/static/structure/corellia/corl_power_transformer_s01.iff	9	95.3553	0.799996	-14.7713	0.889293	0	-0.457339	0		$|
-object/static/structure/general/slab_concrete_imperial.iff	9	93.2421	-7.17773	-35.0479	0.890343	0	-0.455291	0		$|
 object/cell/cell.iff	10	0	0	0	1	0	0	0		$|
 object/tangible/ground_spawning/area_spawner.iff	10	-19.1334	0.765382	40.0488	0.997305	0	0.0733703	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|2.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|1.000000|intDefaultBehavior|0|3|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|hub_rebel_recruiter|strSpawnerType|4|area|strSpawns|4|rebel_recruiter|$|
 object/tangible/ground_spawning/area_spawner.iff	10	-7.79243	0.767939	43.814	0.851311	0	-0.524662	0	systems.spawning.spawner_area	fltMaxSpawnTime|2|2.000000|fltMinSpawnTime|2|1.000000|fltRadius|2|1.000000|intDefaultBehavior|0|3|intGoodLocationSpawner|0|0|intSpawnCount|0|1|intSpawnSystem|0|1|registerWithController|0|1|strName|4|hub_imperial_recruiter|strSpawnerType|4|area|strSpawns|4|imperial_recruiter|$|

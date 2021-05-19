@@ -61,9 +61,7 @@ public class player_hub extends script.base_script {
                 if (objPlayer != self)
                 {
                     pvpSetPersonalEnemyFlag(self, objPlayer);
-                    DISCORD_LOG("PVP",
-                        "[TEF System] " + getFirstName(self) + "has applied a TEF to the group " + groupObject);
-                }
+				}
             }
         }
     }

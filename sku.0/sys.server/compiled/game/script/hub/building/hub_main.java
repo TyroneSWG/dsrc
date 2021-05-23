@@ -7,27 +7,9 @@ public class hub_main extends script.base_script {
 
 	public hub_main() {
 	}
-
-	public static String HUB_SPAWN_TABLE = "datatable/hub/spawns.iff";
 	public static String HUB_WLC_MSG = "";
-	public static int TERMINATE = 1;
-	public static int MAX_PLAYERS = 300;
-	public static int MIN_PLAYERS_PER_BUILDOUT = 10;
-	public static String HUB_SCENE = "dungeon2";
-
-	public static int OnAttach(obj_id self) throws InterruptedException {
-
-		//DISCORD_LOG("HUB", "Hub script attached");
-		return SCRIPT_CONTINUE;
-	}
-
-	public static int OnInitialize(obj_id self) throws InterruptedException {
-		if (!getConfigSetting("Hub", "enabled").equals("true")) {
-			return SCRIPT_CONTINUE;
-		}
-		//DISCORD_LOG("HUB", "Hub Online");
-		return SCRIPT_CONTINUE;
-	}
+	public static int MAX_PLAYERS = 30;
+	public static String HUB_SCENE = "dungeon_hub";
 
 	public int OnAboutToReceiveItem(obj_id self, obj_id destinationCell, obj_id transferrer, obj_id item)
 			throws InterruptedException {

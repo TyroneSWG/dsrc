@@ -1,7 +1,7 @@
 server_template_crc	cell_index	px	py	pz	qw	qx	qy	qz	scripts	objvars
 h	i	f	f	f	f	f	f	f	s	p
 object/tangible/spawning/spawn_egg.iff	0	0	0	0	1	0	0	0		$|
-object/building/hub/space_station.iff	0	8001.03	270.111	8002.07	1	0	0	0	structure.municipal.cloning_facility:content_tools.interior_buildout:npe.npe_public_instance	instance_name|4|hub|isControllerObject|0|1|portalProperty.crc|0|1986195772|$|
+object/building/hub/space_station.iff	0	8000.03	0	8000.0	1	0	0	0	systems.instance.instance_manager	instance_name|4|space_hub|portalProperty.crc|0|1986195772|$|
 object/cell/cell.iff	1	0	0	0	1	0	0	0		$|
 object/tangible/instrument/nalargon.iff	1	-15.5902	0	-15.5647	0.92388	0	0.382683	0	systems.skills.performance.instrument:theme_park.stp.wendle.dax_vreebo	ai.mood|4|themepark_music_2|instrument.unequippable|0|1|$|
 object/tangible/furniture/modern/table_modern_style_01.iff	1	-16.8788	-0.102377	12.289	1	0	0	0		$|
@@ -106,7 +106,7 @@ object/tangible/furniture/modern/bar_piece_curve_s1.iff	1	21.6552	0	8.29675	-0.5
 object/static/item/item_tool_handheld_viewscreen_s1.iff	1	8.27322	1.14917	21.34	1	0	0	0		$|
 object/static/item/item_tank_gas.iff	1	11.9807	0	20.9116	0.988012	0	0.15438	0		$|
 object/static/item/item_tank_gas.iff	1	11.997	0	20.2129	0.710914	0	0.703279	0		$|
-object/mobile/smuggler_fence_lucia.iff	1	4.91124	-0.5	-0.764207	0.635764	0	0.771883	0	systems.combat.credit_for_kills	$|
+object/mobile/smuggler_fence_lucia.iff	1	4.91124	-0.5	-0.764207	0.635764	0	0.771883	0	systems.combat.credit_for_kills	stp.npc.name|4|glass|$|
 object/static/item/item_hoth_terminal_01.iff	1	1.22209	-0.5	-1.18027	0.382683	0	0.92388	0		$|
 object/static/item/item_glass_bluemilk.iff	1	1.33702	-0.160666	-1.26709	1	0	0	0		$|
 object/static/item/item_glass_bluemilk.iff	1	1.69876	-0.161781	-0.935934	1	0	0	0		$|

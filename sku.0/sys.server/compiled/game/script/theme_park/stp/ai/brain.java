@@ -61,7 +61,8 @@ public class brain extends script.base_script {
                     if (getIntObjVar(target, "ai.debuff_count") < 1)
                     {
                         int debuff_count = 0;
-                        setObjVar(target, "ai.debuff_count", debuff_count++);
+                        setObjVar(target, "ai.debuff_count", debuff_count);
+                        debuff_count++;
                     }
                 }
             }

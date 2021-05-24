@@ -17,12 +17,12 @@ public class chapter_house extends script.base_script {
     {
         if (utils.getTemplateName(self).equals(JEDI));
         {
-            setName(self, "Jedi Chapter House");
+            setName(self, "a serene chapter house");
             factions.setFaction(self, "Rebel");
         }
         if (utils.getTemplateName(self).equals(SITH));
         {
-            setName(self, "Sith Chapter House");
+            setName(self, "a dark mysterious chapter house");
             factions.setFaction(self, "Imperial");
         }
         return SCRIPT_CONTINUE;

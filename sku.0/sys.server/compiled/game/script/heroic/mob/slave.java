@@ -49,9 +49,8 @@ public class slave extends script.base_script {
             } else if (hasObjVar(player, "heroics.karma"))
             {
                 int points = getIntObjVar(player, "heroics.karma");
-                points++;
-                setObjVar(player, "heroics.karma", points);
-
+                int finalPoints = points + 1;
+                setObjVar(player, "heroics.karma", finalPoints);
             }
             messageTo(self, "handleRunAway", null, 1.5f, true);
         }
@@ -64,7 +63,8 @@ public class slave extends script.base_script {
 		 * TODO: make it so the move loc is dynamic and not static. Otherwise instance
 		 * #2 will have slaves run to instance #1 and that might be bad.
          */
-        location freeLoc = new location(-5003.04f, 0.0f, 5017.11f);
+        obj_id[] getAwayShip = getAllObjectsWithObjVar(getLocation(self), 200.0f, "runToMe");
+        location freeLoc = getLocation(getAwayShip[0]);
         setMovementRun(self);
         pathTo(self, freeLoc);
         messageTo(self, "handleDelayedDestruct", null, 30, false);
@@ -73,7 +73,13 @@ public class slave extends script.base_script {
 
     public int handleDelayedDestruct(obj_id self, dictionary params) throws InterruptedException
     {
-        chat.chat(self, "Thank the maker. I am free!");
+        String[] CHATTER = {
+                "Thank the maker. I am free!",
+                "Sure ain't gonna miss this place!",
+                "Thanks!",
+                "Alright!"
+        };
+        chat.chat(self, CHATTER[rand(0,3)]);
         destroyObject(self);
         return SCRIPT_CONTINUE;
     }

@@ -1,6 +1,9 @@
 package script.hub.player;
 
 import java.lang.reflect.Array;
+
+import script.library.create;
+import script.library.instance;
 import script.library.sui;
 import script.library.utils;
 import script.*;
@@ -10,46 +13,26 @@ public class player_hub extends script.base_script {
     public player_hub()
     {
     }
-
-    public int OnAttach(obj_id self) throws InterruptedException
-    {
-        return SCRIPT_CONTINUE;
-    }
-
-    public int OnInitialize(obj_id self) throws InterruptedException
-    {
+    public static String ITEM_CRATE_TABLE = "datatables/hub/hub_starter_crate.iff";
+    public void setupForInitialHubVisit(obj_id self, obj_id player) throws InterruptedException {
+        if (!hasObjVar(self, "hub.clearance")) {
+            instance.flagPlayerForInstance(player, "space_hub");
+            obj_id pInv = utils.getInventoryContainer(player);
+            if (!isIdValid(pInv)) {
+                systemMsg(player, "An unknown error has occurred");
+            }
+            String STARTING_CRATE = "object/tangible/terminal/terminal_command_console.iff";
+            obj_id crate = create.createObject(STARTING_CRATE, pInv, "");
+            attachScript(crate, "hub.items.starting_crate");
+            setObjVar(self, "hub.clearance", 1);
+        }
         if (!hasObjVar(self, "hub.introMsg"))
         {
             //ui window similar to chronicler but a new ui window with overview
-            sui.msgbox(self, self, "test123@");
+            sui.msgbox(self, self, "some really long prompt");
             setObjVar(self, "hub.introMsg", 1);
         }
-        return SCRIPT_CONTINUE;
     }
-
-    public int OnDuelRequest(obj_id actor, obj_id target)
-    {
-        if (getCurrentSceneName().equals("dungeon2"))
-        {
-            if (!getConfigSetting("Hub", "dueling").equals("true"))
-            {
-                sendSystemMessageTestingOnly(actor, "You currently may not duel.");
-                return SCRIPT_CONTINUE;
-            }
-            else
-            {
-                sendSystemMessageTestingOnly(actor, "An unknown error has occured.");
-            }
-        }
-
-        return SCRIPT_CONTINUE;
-    }
-
-    public int putOnStation(obj_id self) throws InterruptedException
-    {
-        return SCRIPT_CONTINUE;
-    }
-
     public void groupTEF(obj_id self, obj_id group)
     {
         obj_id groupObject = group;
@@ -88,7 +71,7 @@ public class player_hub extends script.base_script {
 
     public int bustIn(obj_id building, obj_id self) throws InterruptedException
     {
-        float duration = getSkillModBonus(self, "bh_break_in") * 120;
+        float duration = getSkillModBonus(self, "bh_break_in") * 5;
         moveHouseItemToPlayer(getTopMostContainer(self), getClosestPlayer(getLocation(self)), self);
         messageTo(self, "bustOut", null, duration, true);
         return SCRIPT_CONTINUE;

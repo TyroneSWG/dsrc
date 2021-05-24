@@ -5,7 +5,7 @@ import script.library.sui;
 /**
  *
  * @author Roachie
- * @purpose Shuttle to get off the hub.
+ * @hidden  Shuttle to get off the hub.
  * Locations are preset and require a single obj_var to advance. If you add a location make sure the objvar name is simple.
  */
 public class shuttle extends script.base_script {
@@ -35,12 +35,11 @@ public class shuttle extends script.base_script {
             if (getStringObjVar(self, "hub_travel_point").equals("default"))
             {
                 systemMsg(player, "This shuttle is currently out of service.");
-                return SCRIPT_CONTINUE;
             }
             if (getStringObjVar(self, "hub_travel_point").equals("tatooine"))
             {
                 String prompt = "Do you wish to board a shuttle to Mos Eisley?";
-		sui.msgbox(self, player, prompt, sui.OK_CANCEL, TITLE, "handleTatooine");
+		        sui.msgbox(self, player, prompt, sui.OK_CANCEL, TITLE, "handleTatooine");
             }
             if (getStringObjVar(self, "hub_travel_point").equals("taanab"))
             {
@@ -56,33 +55,32 @@ public class shuttle extends script.base_script {
     }
     public int handleTatooine(obj_id self, dictionary params) throws InterruptedException
     {
-	if (params == null || params.isEmpty())
+	    if (params == null || params.isEmpty())
         {
             return SCRIPT_CONTINUE;
         }
-	obj_id player = sui.getPlayerId(params);
-	int btn = sui.getIntButtonPressed(params);
-	if (btn == sui.BP_OK) 
+	    obj_id player = sui.getPlayerId(params);
+	    int btn = sui.getIntButtonPressed(params);
+	    if (btn == sui.BP_OK)
         {
-            systemMsg(player, "TODO: add in tatooine's coord.");
+            // todo: ADD IN MOS EISLEY COORDS
             //warpPlayer(player, "tatooine", 5277.0f, 75.0f, -4198.0f, null, 0, 0, 0, "", true);
-            return SCRIPT_CONTINUE;
-	}
+            systemMsg(player, "Due to recent profit margins, we are unable to travel to Tatooine at this moment.");
+	    }
         return SCRIPT_CONTINUE;
     }
     public int handleTaanab(obj_id self, dictionary params) throws InterruptedException
     {
-	if (params == null || params.isEmpty())
+	    if (params == null || params.isEmpty())
         {
             return SCRIPT_CONTINUE;
         }
-	obj_id player = sui.getPlayerId(params);
-	int btn = sui.getIntButtonPressed(params);
-	if (btn == sui.BP_OK) 
+	    obj_id player = sui.getPlayerId(params);
+	    int btn = sui.getIntButtonPressed(params);
+	    if (btn == sui.BP_OK)
         {
             warpPlayer(player, "taanab", 5277.0f, 75.0f, -4198.0f, null, 0, 0, 0, "", true);
-            return SCRIPT_CONTINUE;
-	}
+	    }
         return SCRIPT_CONTINUE;
     }
 }

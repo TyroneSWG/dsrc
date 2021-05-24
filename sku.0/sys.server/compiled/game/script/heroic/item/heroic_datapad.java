@@ -51,7 +51,7 @@ public class heroic_datapad extends script.base_script {
         {
             currentKarma, currentCompleted
         };
-        if (item == menu_info_types.ITEM_USE)
+        if (menu_info_types.ITEM_USE == item)
         {
             sui.listbox(player, "Current Heroic Data:", datapad_options);
         }

@@ -7,6 +7,7 @@ import script.library.utils;
 /**
  *
  * @author Roachie
+ * push test.
  */
 public class player_developer extends script.base_script {
     public player_developer() {
@@ -18,6 +19,7 @@ public class player_developer extends script.base_script {
             detachScript(self, "developer.player_developer");
             return SCRIPT_CONTINUE;
         }
+        systemMsg(self, "hippity hoppity");
         return SCRIPT_CONTINUE;
     }
     public int cmdSetCount(obj_id self, obj_id target, String params, float defaultTime) throws InterruptedException

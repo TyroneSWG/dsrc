@@ -8,6 +8,7 @@ import script.*;
 public class boombox extends script.base_script {
     public boombox() {
     }
+    public static String SNDPRE = "sound/mus_";
     public int OnAttach(obj_id self) throws InterruptedException
     {
        createTriggerVolume("boombox_cantina", 15.0f, false);
@@ -22,15 +23,13 @@ public class boombox extends script.base_script {
     }
     public int OnTriggerVolumeEntered(obj_id self, String volumeName, obj_id breacher) throws InterruptedException
     {
-        if (isPlayer(breacher) && (volumeName.equals("boombox_cantina")))
-        {
-            String soundFile = "sound/mus_pirate_cantina.snd";
-            String soundFile2 = "sound/mus_cantina_band_remix.snd";
-            setName(self, getName(self) + " (active)");
-            playMusic(breacher, soundFile);
-            //playMusic(breacher, soundFile2);
+        if (!isPlayer(breacher) || (!volumeName.equals("boombox_cantina"))) {
             return SCRIPT_CONTINUE;
         }
+        String SNDFILEPIRATE = "pirate_cantina.snd";
+        String SNDFILECANTINA = "cantina_band_remix.snd";
+        setName(self, getName(self) + " (active)");
+        play2dNonLoopingSound(self, SNDPRE + SNDFILEPIRATE);
         return SCRIPT_CONTINUE;
     }
 }

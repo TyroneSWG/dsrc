@@ -19,7 +19,8 @@ public class nuna_leg extends script.base_script {
 
     public static String YUM_MSG = "Delicious!";
     public static String YUCK_MSG = "I think I'm going to be sick... -pukes-";
-    //TODO: refactor these!
+    public static String OK_MSG = "-om nom nom-";
+    /* TODO: refactor these! */
 
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
@@ -32,18 +33,19 @@ public class nuna_leg extends script.base_script {
     {
         if (item == menu_info_types.ITEM_USE)
         {
-            int idx = rand(0, 2);
-            if (idx == 0)
+            int idx = rand(0, 10);
+            if (idx == 2)
             {
                 chat.chat(player, YUCK_MSG);
                 sendSystemMessageTestingOnly(player, "You have obtained food poisioning.");
                 doAnimationAction(player, "heavy_cough_vomit");
             }
-            if (idx == 1)
+            if (idx == 5)
             {
+                chat.chat(player, OK_MSG);
                 sendSystemMessageTestingOnly(player, "You take a bite of the Nuna Leg");
             }
-            if (idx == 2)
+            if (idx == 7)
             {
                 chat.chat(player, YUM_MSG);
                 sendSystemMessageTestingOnly(player, "You have been inspired by the quality of this food.");

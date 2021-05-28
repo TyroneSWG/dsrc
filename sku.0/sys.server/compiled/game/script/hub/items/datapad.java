@@ -11,7 +11,9 @@ public class datapad extends base_class {
 
     public datapad() {
     }
-    public static String STATIC_MESSAGE = "";
+    public static String GOLD = "\\#FFD700";
+    public static String WHITE = "\\#FFFFFF";
+    public static String STATIC_MESSAGE = "[string_id me pls] TEXT TEXT TEXT TEXT TEXT TEXT TEXT ";
     public static int OnAttach(obj_id self) throws InterruptedException {
         return SCRIPT_CONTINUE;
     }
@@ -31,7 +33,7 @@ public class datapad extends base_class {
             int page = createSUIPage("/Script.hubWindow", self, self);
             setSUIProperty(page, "btnOk", "LocalText", "Travel");
             setSUIProperty(page, "btnCancel", "LocalText", "Decline");
-            setSUIProperty(page, "text", "LocalText", "Test");
+            setSUIProperty(page, "text", "LocalText", GOLD + "THE ADVENTURE CONTINUES..." + WHITE);
             setSUIProperty(page, "main.text", "LocalText", STATIC_MESSAGE);
             setSUIProperty(page, "bg.caption.text", "LocalText", "Outer Rim Travel Authority");
             subscribeToSUIEvent(page, sui_event_type.SET_onButton, "btnOk", "OnButtonClick");

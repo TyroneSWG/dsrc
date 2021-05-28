@@ -34,7 +34,7 @@ public class datapad extends base_class {
             setSUIProperty(page, "btnOk", "LocalText", "Travel");
             setSUIProperty(page, "btnCancel", "LocalText", "Decline");
             setSUIProperty(page, "text", "LocalText", GOLD + "THE ADVENTURE CONTINUES..." + WHITE);
-            setSUIProperty(page, "main.text", "LocalText", STATIC_MESSAGE);
+            setSUIProperty(page, "main.text", "LocalText", WHITE + STATIC_MESSAGE);
             setSUIProperty(page, "bg.caption.text", "LocalText", "Outer Rim Travel Authority");
             subscribeToSUIEvent(page, sui_event_type.SET_onButton, "btnOk", "OnButtonClick");
             //subscribeToSUIPropertyForEvent(page, sui_event_type.SET_onButton, "btnOk", "pageText.text", "Text");

@@ -87,6 +87,23 @@ public class sui extends script.base_script
     public static final String INPUTBOX_INPUT_LOCALTEXT = INPUTBOX_INPUT + "." + PROP_LOCALTEXT;
     public static final String INPUTBOX_COMBO_SELECTEDTEXT = INPUTBOX_INPUT + "." + PROP_SELECTEDTEXT;
     public static final String INPUTBOX_COMBO_SELECTEDINDEX = INPUTBOX_INPUT + "." + PROP_SELECTEDINDEX;
+    public static final String SUI_INPUTNUMBOX = "Script.inputBoxNumCombo";
+    public static final String INPUTNUMBOX_PAGE_PROMPT = "Prompt";
+    public static final String INPUTNUMBOX_PAGE_CAPTION = "bg.caption";
+    public static final String INPUTNUMBOX_BTN_CANCEL = "btnCancel";
+    public static final String INPUTNUMBOX_BTN_OK = "btnOk";
+    public static final String INPUTNUMBOX_PROMPT = INPUTNUMBOX_PAGE_PROMPT + ".lblPrompt";
+    public static final String INPUTNUMBOX_TITLE = INPUTNUMBOX_PAGE_CAPTION + ".lblTitle";
+    public static final String INPUTNUMBOX_INPUT = "txtInput";
+    public static final String INPUTNUMBOX_INPUT_NUM = "txtNum";
+    public static final String INPUTNUMBOX_COMBO = "cmbInput";
+    public static final String INPUTNUMBOX_DATASOURCE = "dataInput";
+    public static final String INPUTNUMBOX_INPUT_NAME = INPUTNUMBOX_INPUT + "." + PROP_NAME;
+    public static final String INPUTNUMBOX_INPUT_LOCALTEXT = INPUTNUMBOX_INPUT + "." + PROP_LOCALTEXT;
+    public static final String INPUTNUMBOX_INPUT_NUM_NAME = INPUTNUMBOX_INPUT + "." + PROP_NAME;
+    public static final String INPUTNUMBOX_INPUT_NUM_LOCALTEXT = INPUTNUMBOX_INPUT + "." + PROP_LOCALTEXT;
+    public static final String INPUTNUMBOX_COMBO_SELECTEDTEXT = INPUTNUMBOX_INPUT + "." + PROP_SELECTEDTEXT;
+    public static final String INPUTNUMBOX_COMBO_SELECTEDINDEX = INPUTNUMBOX_INPUT + "." + PROP_SELECTEDINDEX;
     public static final String SUI_LISTBOX = "Script.listBox";
     public static final String LISTBOX_PAGE_PROMPT = "Prompt";
     public static final String LISTBOX_PAGE_CAPTION = "bg.caption";
@@ -863,6 +880,37 @@ public class sui extends script.base_script
     public static int filteredInputbox(obj_id owner, obj_id target, String prompt, String box_title, String suiHandler, String defaultText) throws InterruptedException
     {
         return inputbox(owner, target, prompt, box_title, suiHandler, defaultText);
+    }
+    public static int inputnumbox(obj_id owner, obj_id target, String prompt, String box_title, String suiHandler, dictionary params) throws InterruptedException
+    {
+        if (!isIdValid(owner) || !isIdValid(target))
+        {
+            return -1;
+        }
+        if (prompt == null || prompt.equals(""))
+        {
+            return -1;
+        }
+        if (suiHandler == null || suiHandler.equals(""))
+        {
+            suiHandler = "noHandler";
+        }
+        if (box_title.equals(""))
+        {
+            box_title = DEFAULT_TITLE;
+        }
+        int pid = createSUIPage(SUI_INPUTNUMBOX, owner, target, suiHandler);
+        setSUIProperty(pid, INPUTNUMBOX_PROMPT, PROP_TEXT, prompt);
+        setSUIProperty(pid, INPUTNUMBOX_TITLE, PROP_TEXT, box_title);
+        setSUIProperty(pid, INPUTNUMBOX_INPUT, "MaxLength", "4");
+        subscribeToSUIProperty(pid, INPUTBOX_INPUT, PROP_LOCALTEXT);
+        subscribeToSUIProperty(pid, INPUTBOX_COMBO, PROP_SELECTEDTEXT);
+        showSUIPage(pid);
+        if (owner != target)
+        {
+            setAssociateRange(target, pid, owner);
+        }
+        return pid;
     }
     public static void trackFilteredInputbox(obj_id owner, obj_id player, int pid, String suiHandler, String defaultText) throws InterruptedException
     {

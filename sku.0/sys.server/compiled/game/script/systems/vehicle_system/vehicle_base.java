@@ -3,6 +3,8 @@ package script.systems.vehicle_system;
 import script.*;
 import script.library.*;
 
+import java.util.Enumeration;
+
 public class vehicle_base extends script.base_script
 {
     public vehicle_base()
@@ -91,6 +93,23 @@ public class vehicle_base extends script.base_script
     }
     public int handleVehicleDecay(obj_id self, dictionary params) throws InterruptedException
     {
+        /*
+            vehicleDecayRate:
+            This should be anywhere from 3-6 for a Pre-CU like setting.
+        */
+        int decayRate = utils.getIntConfigSetting("GameServer", "vehicleDecayRate");
+        if (decayRate > 100)
+        {
+            decayRate = 100; //instant explosion
+        }
+        int decayModifer = utils.getIntConfigSetting("GameServer", "vehicleDecayModifer");
+        if (decayModifer > 100)
+        {
+            decayModifer = 100; //cap at this
+        }
+        int HP = getHitpoints(self);
+        int decayTick = (HP * decayModifer) / decayRate;
+        setHitpoints(self, decayTick);
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
@@ -257,11 +276,7 @@ public class vehicle_base extends script.base_script
         {
             return false;
         }
-        if (playerCurrentMount != pet)
-        {
-            return false;
-        }
-        return true;
+        return playerCurrentMount == pet;
     }
     public boolean canTrainAsMount(obj_id pet, obj_id player) throws InterruptedException
     {
@@ -518,7 +533,7 @@ public class vehicle_base extends script.base_script
             return false;
         }
         boolean litmus = true;
-        java.util.Enumeration keys = params.keys();
+        Enumeration keys = params.keys();
         while (keys.hasMoreElements())
         {
             String var = (String)keys.nextElement();

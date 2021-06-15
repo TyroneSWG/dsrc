@@ -3918,7 +3918,13 @@ public class base_class
         sendSystemMessage (to, null, packOutOfBandProsePackage (null, pp));
         //sendSystemMessageProse (getChatName (to), pp);
     }
-
+	/**
+    * Send a system message to an individual (ez mode)
+    */
+	public static void systemMsg(obj_id to, String msg)
+    {
+        sendSystemMessage (to, msg, null);
+    }
     /**
     * Send a system message to an individual
     */

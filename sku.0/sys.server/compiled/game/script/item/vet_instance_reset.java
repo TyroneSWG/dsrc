@@ -47,7 +47,7 @@ public class vet_instance_reset extends script.base_script
 				int lastUsed = getIntObjVar(self, "used.timestamp");
 				if(currentGameTime < (lastUsed + 172800))
 				{
-					//TODO: add message here to tell player it aint time yet
+					systemMsg(player, "You cannot use this yet.");
 					return SCRIPT_CONTINUE; //If it hasn't been 2 days yet, don't allow them to continue.
 				}
 			}
@@ -123,7 +123,7 @@ public class vet_instance_reset extends script.base_script
 			int lastUsed = getIntObjVar(self, "used.timestamp");
 			if(currentGameTime < (lastUsed + 172800))
 			{
-				//TODO: add message here to tell player it aint time yet
+                systemMsg(player, "You cannot use this yet.");
 				return SCRIPT_CONTINUE; //If it hasn't been 2 days yet, don't allow them to continue.
 			}
 		}
@@ -196,7 +196,7 @@ public class vet_instance_reset extends script.base_script
 			int lastUsed = getIntObjVar(self, "used.timestamp");
 			if(currentGameTime < (lastUsed + 172800))
 			{
-				//TODO: add message here to tell player it aint time yet
+                systemMsg(player, "You cannot use this yet.");
 				return SCRIPT_CONTINUE; //If it hasn't been 2 days yet, don't allow them to continue.
 			}
 		}

@@ -32,7 +32,7 @@ public class hub_transport extends script.base_script {
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException {
         if (item == menu_info_types.ITEM_USE) {
             String title = "Confirm Departure";
-            String prompt = "Would you like to board this shuttle for " + RED + "2,500" + WHITE + "credits";
+            String prompt = "Would you like to board this shuttle for " + RED + "2,500" + WHITE + " credits";
             sui.msgbox(self, player, prompt, sui.OK_CANCEL, title, "handleConfirm");
         }
         return SCRIPT_CONTINUE;

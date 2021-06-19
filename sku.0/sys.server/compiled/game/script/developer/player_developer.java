@@ -26,6 +26,11 @@ public class player_developer extends script.base_script {
     {
         StringTokenizer st = new java.util.StringTokenizer(params);
         String command = "";
+        if (st.equals(""))
+        {
+            systemMsg(self, "[SYNTAX]: /setCount [-target number | -oid obj_id number| -maxstack] ");
+            systemMsg(self, "All values must be lower than 1,000");
+        }
         if (st.hasMoreTokens())
         {
             command = st.nextToken();

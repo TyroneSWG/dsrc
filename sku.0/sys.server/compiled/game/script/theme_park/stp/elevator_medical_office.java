@@ -1,6 +1,7 @@
 package script.theme_park.stp;
 
 import script.*;
+import script.library.utils;
 
 public class elevator_medical_office extends base_class {
 
@@ -16,11 +17,7 @@ public class elevator_medical_office extends base_class {
     }
     public int OnObjectMenuRequest(obj_id self, obj_id player, menu_info mi) throws InterruptedException
     {
-        menu_info_data data = mi.getMenuItemByType(menu_info_types.ITEM_USE);
-        if (data != null)
-        {
-            data.setServerNotify(true);
-        }
+        mi.addRootMenu(menu_info_types.ITEM_USE, utils.unpackString("Call Elevator"));
         return SCRIPT_CONTINUE;
     }
     public int OnObjectMenuSelect(obj_id self, obj_id player, int item) throws InterruptedException

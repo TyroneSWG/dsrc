@@ -36,7 +36,7 @@ public class magic_satchel extends base_script {
             obj_id[] dupeContents = getContents(dupeContainer);
             for (obj_id converted : dupeContents)
             {
-                obj_id final_product = utils.stringToObjId(getTemplateName(converted));
+                obj_id final_product = create.createObject(getTemplateName(converted), dupeContainer, "");
                 String[] scriptList = converted.getScripts();
                 for (String srcScript : scriptList) attachScript(final_product, srcScript);
                 String packedVars = getPackedObjvars(converted);
